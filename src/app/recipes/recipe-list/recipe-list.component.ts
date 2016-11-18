@@ -3,9 +3,14 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe';
 import { RecipeItemComponent } from './recipe-item.component';
 
+import { ApiService } from '../../api.service'
+import { AuthService } from '../../auth.service'
+
+
 @Component({
   selector: 'app-recipe-list',
-  templateUrl: './recipe-list.component.html'
+  templateUrl: './recipe-list.component.html',
+  providers: [ApiService, AuthService]
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
@@ -17,9 +22,18 @@ export class RecipeListComponent implements OnInit {
                       5
                     );
 
-  constructor() { }
+  constructor(private apiClient: ApiService) { }
 
   ngOnInit() {
+    this.apiClient.signin('arol','Bananas')
+    .then(()=>this.apiClient.getRecipes())
+    .then((recipes) => {
+      console.log(recipes);
+      debugger;
+    })
+    .catch((err) => {
+      console.log(error);
+    })
   }
 
   onSelected(recipe: Recipe) {
