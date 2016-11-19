@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HeaderComponent } from './header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-
+import { MainComponent } from './main.component';
 
 @Component({
   selector: 'app-root',  // works like a CSS selector

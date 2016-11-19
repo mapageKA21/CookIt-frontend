@@ -26,13 +26,13 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit() {
     this.apiClient.signin('arol','Bananas')
-    .then(()=>this.apiClient.getRecipes())
+    .then(()=>this.apiClient.getRecipes('just to avoid the error'))
     .then((recipes) => {
       console.log(recipes);
       debugger;
     })
     .catch((err) => {
-      console.log(error);
+      console.log(err); //Fixed
     })
   }
 
