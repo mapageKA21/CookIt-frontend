@@ -1,0 +1,14 @@
+
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
+  display: block;
+  float: left;
+  background-color: #cc51c23 !important;
+  width: 100%;
+  background: #e51c23;
+  color: #fff;
+  font-size: 200%;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border-top: 10px red solid;
+}
