@@ -10,6 +10,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { FooterComponent } from './footer/footer.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
-    FooterComponent
+    FooterComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,

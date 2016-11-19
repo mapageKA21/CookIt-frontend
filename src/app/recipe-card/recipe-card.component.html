@@ -1,3 +1,44 @@
-<p>
-  recipe-card works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <img src="{{image_url}}"
+        alt=""
+        width="200"
+        height="200"
+        class="img-responsive">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>{{name}}</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p>Id: {{id}}</p>
+    <span class="time">Time:  {{cost}}</span>
+    <span class="difficult">Difficulty:  {{difficulty}}</span>
+    <span class="cost">Cost:  {{time}}</span>
+  </div>
+</div>
+<!-- //  Each section is going to be a component -->
+<section class="ingredients">
+  <!-- //  iterate through ingredients -->
+  <span class="name">{{ingredients.name}}</span>
+  <span class="quantity">{{ingredients.quantity}}</span>
+  <span class="units">{{ingredients.units}}</span>
+</section>
+<section class="kit">
+  <!-- //  iterate through the array -->
+</section>
+<section class="preparation">
+  <!-- //  iterate through the array -->
+</section>
+<section class="instructions">
+  <!-- //  iterate through the array -->
+</section>
+<section class="serving">
+  <!-- //  iterate through the array -->
+</section>
+<section class="servings">
+  <!-- //  iterate through the array -->
+</section>
