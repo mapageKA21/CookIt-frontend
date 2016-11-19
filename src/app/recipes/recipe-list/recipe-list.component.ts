@@ -10,7 +10,6 @@ import { AuthService } from '../../auth.service'
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css'],
   providers: [ApiService, AuthService]
 })
 

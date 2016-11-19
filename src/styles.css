@@ -3,6 +3,7 @@
 	margin: 0;
 }
 html, body {
+	background-color:#c0d9d9;
 	height: 100%;
 }
 app-root {
@@ -43,4 +44,18 @@ app-recipe-item, .list-items {
 }
 ::-webkit-scrollbar {
     display: none;
+}
+app-header {
+  float: left;
+  width: 100%;
+  background: #9ac0cd;
+  color: #fff;
+  font-size: 200%;
+}
+.navbar-brand {
+	color:#fff;
+	font-size:1em;
+}
+.navbar {
+	margin-bottom:0;
 }
