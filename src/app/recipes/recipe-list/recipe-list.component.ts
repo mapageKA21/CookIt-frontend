@@ -29,7 +29,6 @@ export class RecipeListComponent implements OnInit {
     .then(()=>this.apiClient.getRecipes('just to avoid the error'))
     .then((recipes) => {
       console.log(recipes);
-      debugger;
     })
     .catch((err) => {
       console.log(err); //Fixed

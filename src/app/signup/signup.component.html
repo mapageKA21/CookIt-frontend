@@ -12,14 +12,14 @@
   <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-  <title>Log in</title>
+  <title>Sign up</title>
 </head>
 <body>
   <div class="container">
     <div class="row main">
       <div class="panel-heading">
         <div class="panel-title text-center">
-           <h1 class="title">Log in</h1>
+           <h1 class="title">Sign up</h1>
            <hr />
            <h3 *ngIf="status !== ''">{{status}}</h3>
         </div>
@@ -31,7 +31,7 @@
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                <input #user type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                <input type="text" #user class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
               </div>
             </div>
           </div>
@@ -40,16 +40,25 @@
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                <input #pass type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                <input type="password" #pass1 class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <input type="password" #pass2 class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
               </div>
             </div>
           </div>
           <div class="form-group ">
-            <button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)="login(user.value,pass.value)">Log in</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)="signup(user.value,pass1.value,pass2.value)">Register</button>
           </div>
           <div class="login-register">
-            <a href="/signup">Sign up</a>
-          </div>
+                  <a href="/login">Login</a>
+               </div>
         </form>
       </div>
     </div>

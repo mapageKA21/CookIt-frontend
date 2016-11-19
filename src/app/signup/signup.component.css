@@ -34,8 +34,8 @@ label{
 
 input,
 input::-webkit-input-placeholder {
-    font-size: 11px;
-    padding-top: 3px;
+  font-size: 11px;
+  padding-top: 3px;
 }
 
 .main-login{
