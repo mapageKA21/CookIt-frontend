@@ -2,12 +2,15 @@
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{recipe.name}}</h4>
     <p class="list-group-item-text">{{recipe.description}}</p>
-    <span class="time">{{recipe.time}}</span>
+    <span class="id">{{recipe.id}}</span>
     <span class="cost">{{recipe.cost}}</span>
+    <span class="time">{{recipe.time}}</span>
+    <span class="difficulty">{{recipe.difficulty}}</span>
+
   </div>
   <span class="pull-right">
     <img class="img-responsive"
-          src="{{recipe.imagePath}}"
+          src="{{recipe.image_url}}"
           style="..."
           width="50"
           height="50"/>

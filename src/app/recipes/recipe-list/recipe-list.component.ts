@@ -12,15 +12,16 @@ import { AuthService } from '../../auth.service'
   templateUrl: './recipe-list.component.html',
   providers: [ApiService, AuthService]
 })
+
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [];
+  recipes: Recipe[];
   @Output() recipeSelected = new EventEmitter<Recipe>();
-  recipe = new Recipe('Placeholder Name',
-                      'Placeholder Description',
-                      'https://staticdelivery.nexusmods.com/mods/110/images/74627-0-1459502036.jpg',
-                      25,
-                      5
-                    );
+  // recipe = new Recipe('Placeholder Name',
+  //                     'Placeholder Description',
+  //                     'https://staticdelivery.nexusmods.com/mods/110/images/74627-0-1459502036.jpg',
+  //                     25,
+  //                     5
+  //                   );
 
   constructor(private apiClient: ApiService) { }
 
@@ -28,11 +29,12 @@ export class RecipeListComponent implements OnInit {
     this.apiClient.signin('arol','Bananas')
     .then(()=>this.apiClient.getRecipes())
     .then((recipes) => {
-      console.log(recipes);
-      debugger;
+      this.recipes = recipes;
+      console.log(this.recipes);
+      // debugger;
     })
     .catch((err) => {
-      console.log(error);
+      console.log(err);
     })
   }
 
