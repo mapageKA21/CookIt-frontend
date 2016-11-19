@@ -16,12 +16,6 @@ import { AuthService } from '../../auth.service'
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   @Output() recipeSelected = new EventEmitter<Recipe>();
-  // recipe = new Recipe('Placeholder Name',
-  //                     'Placeholder Description',
-  //                     'https://staticdelivery.nexusmods.com/mods/110/images/74627-0-1459502036.jpg',
-  //                     25,
-  //                     5
-  //                   );
 
   constructor(private apiClient: ApiService) { }
 
@@ -30,6 +24,18 @@ export class RecipeListComponent implements OnInit {
     .then(()=>this.apiClient.getRecipes())
     .then((recipes) => {
       this.recipes = recipes;
+      //  create additional dummy content
+      this.recipes[2] = this.recipes[0];
+      this.recipes[3] = this.recipes[1];
+      this.recipes[4] = this.recipes[0];
+      this.recipes[5] = this.recipes[1];
+      this.recipes[6] = this.recipes[0];
+      this.recipes[7] = this.recipes[1];
+      this.recipes[8] = this.recipes[0];
+      this.recipes[9] = this.recipes[1];
+
+
+      this.recipeSelected.emit(recipes[0]); //  load placeholder
       console.log(this.recipes);
       // debugger;
     })

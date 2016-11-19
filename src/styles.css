@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+app-root {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
+}
