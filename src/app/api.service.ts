@@ -49,7 +49,7 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  getRecipes(query: string) {
+  getRecipes(query?: string) {
     return this.http
       .get(`${this.BASE_URL}/recipes`, { headers: this.headers })
       .toPromise()

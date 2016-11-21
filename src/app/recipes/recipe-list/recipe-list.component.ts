@@ -34,9 +34,7 @@ export class RecipeListComponent implements OnInit {
       this.recipes[8] = this.recipes[0];
       this.recipes[9] = this.recipes[1];
 
-
       this.recipeSelected.emit(recipes[0]); //  load placeholder
-      console.log(this.recipes);
       // debugger;
     })
     .catch((err) => {

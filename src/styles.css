@@ -70,3 +70,23 @@ app-recipes .col-xs-12 {
 	float:left;
 	width:100%;
 }
+
+span.arrow-left,
+span.arrow-right {
+    display: block;
+    position: absolute;
+    background-color: #555;
+    color:white;
+    z-index: 2;
+    cursor: pointer;
+}
+span.arrow-left {
+    left: 0px;
+}
+span.arrow-right {
+    right: 0px;
+}
+span.arrow-left:hover,
+span.arrow-right:hover{
+    background-color: #333;
+}
