@@ -1,8 +1,8 @@
 export class Recipe {
-  constructor(public name,
-              public description,
-              public imagePath,
-              public time,
-              public cost
-  ) {}
+  id: number;
+  cost: number;
+  difficulty:number;
+  image_url:string;
+  name:string;
+  time:number;
 }

@@ -13,7 +13,18 @@ export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
   constructor() { }
 
+  element;
+  hover;
+
   ngOnInit() {
+    this.element = document.getElementById('scroll-me');
   }
 
+  leftScroll (event) {
+    this.element.scrollLeft += 100;
+  }
+
+  rightScroll () {
+    this.element.scrollLeft -= 100;
+  }
 }

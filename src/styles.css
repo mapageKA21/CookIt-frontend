@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+	margin: 0;
+}
+html, body {
+	background-color:#c0d9d9;
+	height: 100%;
+}
+app-root {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
+}
+
+.recipe-card {
+	display: flex;
+	max-width: 150px;
+  display: inline-block;
+  float: left;
+	margin-left:5px;
+}
+.recipe-card img {
+	width:100%;
+	height:100%;
+}
+app-recipe-list {
+	display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+app-recipe-item, .list-items {
+	display: flex;
+	min-height: 120px;
+	min-width: 150px;
+	color:white;
+}
+app-recipe-item h5 {
+	color:white;
+	font-size: 1.2em;
+	margin-bottom: 0;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+app-header {
+  float: left;
+  width: 100%;
+  background: #9ac0cd;
+  color: #fff;
+  font-size: 200%;
+}
+.navbar-brand {
+	color:#fff;
+	font-size:1em;
+}
+.navbar {
+	margin-bottom:0;
+}
+app-recipes .col-xs-12 {
+	display:block;
+	float:left;
+	width:100%;
+}
+
+span.arrow-left,
+span.arrow-right {
+    display: block;
+    position: absolute;
+    background-color: #555;
+    color:white;
+    z-index: 2;
+    cursor: pointer;
+}
+span.arrow-left {
+    left: 0px;
+}
+span.arrow-right {
+    right: 0px;
+}
+span.arrow-left:hover,
+span.arrow-right:hover{
+    background-color: #333;
+}
