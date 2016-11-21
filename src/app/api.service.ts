@@ -6,7 +6,7 @@ import { AuthService } from './auth.service'
 
 @Injectable()
 export class ApiService {
-  BASE_URL: string = 'https://private-ee7c-codeworksrecipes.apiary-mock.com'
+  BASE_URL: string = 'http://localhost:3001';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private authService: AuthService, private http: Http) { }
@@ -17,9 +17,9 @@ export class ApiService {
   }
 
   private parseCurrentUser(res: Response): Promise<any> {
-    let userData:any = res.json()
-    this.headers.append('Authorization', userData.auth_token)
-    this.authService.setCurrentUser(userData)
+    let userData:any = res.json();
+    this.headers.append('Authorization', userData.auth_token);
+    this.authService.setCurrentUser(userData);
     return Promise.resolve(this.authService.getCurrentUser());
   }
 
@@ -39,7 +39,7 @@ export class ApiService {
   }
 
   signin (username: string, password: string) {
-    this.headers.append('Authorization', "Basic " + btoa(username + ":" + password))
+    this.headers.set('Authorization', "Basic " + btoa(username + ":" + password))
     return this.http
       .get(`${this.BASE_URL}/sign-in`, { headers: this.headers })
       .toPromise()
