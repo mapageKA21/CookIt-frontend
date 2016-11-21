@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ApiService } from '../api.service'
 import { AuthService } from '../auth.service'
@@ -7,13 +8,17 @@ import { AuthService } from '../auth.service'
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-    providers: [ApiService, AuthService]
+  providers: [ApiService, AuthService]
 })
 export class SignupComponent implements OnInit {
 
   status = '';
 
-  constructor(private apiClient: ApiService, private authClient: AuthService) { }
+  constructor(
+    private apiClient: ApiService,
+    private authClient: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -25,10 +30,13 @@ export class SignupComponent implements OnInit {
     else {
       this.apiClient.signup(user,pass1)
       .then((data) => {
-        window.location.href = '/'
+        this.router.navigate(['/']);
       })
       .catch((err) => {
-        console.log('error auth '+ err);
+        if (err._body) {
+          let body = JSON.parse(err._body);
+          if (body.error) this.status = body.error;
+        }
       });
     }
   }

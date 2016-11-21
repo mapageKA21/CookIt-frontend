@@ -22,17 +22,18 @@ export class RecipeListComponent implements OnInit {
                       5
                     );
 
-  constructor(private apiClient: ApiService) { }
+  constructor(private apiClient: ApiService, private authClient: AuthService) { }
 
   ngOnInit() {
-    this.apiClient.signin('arol','Bananas')
-    .then(()=>this.apiClient.getRecipes('just to avoid the error'))
-    .then((recipes) => {
-      console.log(recipes);
-    })
-    .catch((err) => {
-      console.log(err); //Fixed
-    })
+    console.log('Current user',this.authClient.getCurrentUser());
+    // this.apiClient.signin('arol','Bananas')
+    // .then(()=>this.apiClient.getRecipes('just to avoid the error'))
+    // .then((recipes) => {
+    //   console.log(recipes);
+    // })
+    // .catch((err) => {
+    //   console.log(err); //Fixed
+    // })
   }
 
   onSelected(recipe: Recipe) {

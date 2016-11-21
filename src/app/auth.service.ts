@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  private _currentUser = {}
+  private static _currentUser;
 
   constructor() { }
 
   setCurrentUser(data) {
-    console.log("Setting current user:", data);
-    this._currentUser = data
+    AuthService._currentUser = data
+    console.log("Setting current user:", AuthService._currentUser);
   }
 
   getCurrentUser() {
-    return this._currentUser;
+    return AuthService._currentUser;
   }
 
 }

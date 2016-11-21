@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ApiService } from '../api.service'
 import { AuthService } from '../auth.service'
@@ -11,7 +12,16 @@ import { AuthService } from '../auth.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private apiClient: ApiService, private authClient: AuthService) { }
+  // private id: string;
+
+  constructor(
+    private apiClient: ApiService,
+    private authClient: AuthService,
+    // private route: ActivatedRoute,
+    private router: Router
+  ) {
+    // route.params.subscribe(_ => this.id = _.id);
+  }
 
   status = '';
 
@@ -19,14 +29,19 @@ export class LoginComponent implements OnInit {
   }
 
   login(user: string,pass: string): void {
+    this.status='';
     if (pass === '') this.status = 'Password can not be empty.'
     else if (user === '') this.status = 'Username can not be empty.'
     this.apiClient.signin(user,pass)
     .then((data) => {
-      window.location.href = '/'
+      // window.location.href = '/';
+      this.router.navigate(['/']);
     })
     .catch((err) => {
-      console.log('error auth '+ err);
+      if (err._body) {
+        let body = JSON.parse(err._body);
+        if (body.error) this.status = body.error;
+      }
     });
   }
 
