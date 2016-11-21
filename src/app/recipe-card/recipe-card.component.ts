@@ -36,14 +36,11 @@ export class RecipeCardComponent implements OnInit {
   preparation: "Slice the potates in cubes";
   instructions: [ "Bake the sliced potatoes in the oven",
         "Fry a little bit the potatoes in the pan",
-        "Lower the pan heat level. Throw the squashed egg on the pan."
+        "Lower the pan heat level. Throw the squashed egg on the pan.",
         "Wait until it's cooked at the bottom, then turn it over the pan.",
         "When it gets golden at the bottom again it's ready!" ];
   serving: "Serve the meal on the plate and enjoy it!";
   servings: 2;
-
-
-
 
   constructor( private apiClient: ApiService ) { }
 

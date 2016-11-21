@@ -39,8 +39,14 @@ app-recipe-list {
 }
 app-recipe-item, .list-items {
 	display: flex;
-	min-height: 150px;
+	min-height: 120px;
 	min-width: 150px;
+	color:white;
+}
+app-recipe-item h5 {
+	color:white;
+	font-size: 1.2em;
+	margin-bottom: 0;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -58,4 +64,9 @@ app-header {
 }
 .navbar {
 	margin-bottom:0;
+}
+app-recipes .col-xs-12 {
+	display:block;
+	float:left;
+	width:100%;
 }
