@@ -2,21 +2,5 @@
     <app-recipe-detail [selectedRecipe]="selectedRecipe"></app-recipe-detail>
   <section class='recipe-list-holder'>
     <h4>Recipe Category Placeholder</h4>
-    <span
-      (click)='leftScroll()'
-      class='arrow-left'>
-        click left
-    </span>
-    <span
-      (click)='rightScroll()'
-      class='arrow-right'>
-        click right
-      </span>
-    <app-recipe-list id='scroll-me' (recipeSelected)="selectedRecipe=$event"> </app-recipe-list>
-  </section>
-  <section>
-    <h4>Another Category Placeholder</h4>
-    <span class='arrow-left'>left</span>
-    <span class='arrow-right'>right</span>
-    <app-recipe-list (recipeSelected)="selectedRecipe=$event"></app-recipe-list>
+    <app-recipe-list class='scroll-me' (recipeSelected)="selectedRecipe=$event"> </app-recipe-list>
   </section>

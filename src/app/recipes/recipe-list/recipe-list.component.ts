@@ -19,7 +19,14 @@ export class RecipeListComponent implements OnInit {
 
   constructor(private apiClient: ApiService) { }
 
+  element;
+  width:number;
+  intervalId;
+
   ngOnInit() {
+    this.element = document.querySelector('.scroll-me');
+    this.width = this.element.offsetWidth;
+
     this.apiClient.signin('arol','Bananas')
     .then(()=>this.apiClient.getRecipes())
     .then((recipes) => {
@@ -40,6 +47,24 @@ export class RecipeListComponent implements OnInit {
     .catch((err) => {
       console.log(err);
     })
+  }
+
+  leftScroll () {
+    this.element.scrollLeft -= 7;
+    if (this.element.scrollLeft > 0) {
+        this.intervalId = setTimeout(() => {
+        this.leftScroll();
+      }, 1/5);
+    }
+  }
+
+  rightScroll () {
+    this.element.scrollLeft += 7;
+    if (this.element.scrollLeft < this.width) {
+        this.intervalId = setTimeout(() => {
+        this.rightScroll();
+      }, 1/5);
+    }
   }
 
   onSelected(recipe: Recipe) {
