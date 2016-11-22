@@ -15,6 +15,7 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthEvent } from './auth-event';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { SignupComponent } from './signup/signup.component';
       }
     ])
   ],
-  providers: [],
+  providers: [AuthEvent],
   bootstrap: [AppComponent]
 })
 
