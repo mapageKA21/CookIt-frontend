@@ -40,6 +40,10 @@ app-recipe-list {
 	text-align: center;
 }
 
+section.recipe-list-holder {
+	position: relative;
+	bottom: 25vh;
+}
 app-recipe-item,
 .list-items {
 	display: flex;
@@ -105,13 +109,22 @@ span.arrow-right:hover{
 }
 
 app-recipe-detail {
-	color:#fff;
+	color: #fff;
+	position: relative;
+	width: 100%;
+	display: inline-block;
+	height: 100%;
+}
+
+app-recipe-detail h3 {
+	position: absolute;
+	z-index: 9;
 }
 
 app-recipes {
-	display: block;
 	float: left;
 	height: calc(100vh - 110px);
+	position:relative;
 	width:100%;
 }
 
@@ -128,6 +141,15 @@ app-footer  {
 	font-size: 200%;
 	padding: 10px 15px 0 0;
   width: 100%;
+}
+
+div.bg-image {
+	height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
 app-footer p {

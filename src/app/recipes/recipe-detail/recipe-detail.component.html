@@ -1,9 +1,7 @@
     <h3>{{selectedRecipe?.name}}</h3>
-    <img src="{{selectedRecipe?.image_url}}"
-        alt=""
-        width="200"
-        height="200"
-        class="img-responsive">
+    <div  class="bg-image"
+      [ngStyle]="{'background-image':'url(' + selectedRecipe?.image_url + ')'}" >
+    </div>
     <!-- <p>{{selectedRecipe?.id}}</p>
     <span class="time">{{selectedRecipe?.cost}}</span>
     <span class="cost">{{selectedRecipe?.difficulty}}</span>
