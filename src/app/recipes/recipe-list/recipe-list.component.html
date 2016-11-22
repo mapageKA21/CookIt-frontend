@@ -1,4 +1,13 @@
-
+  <span
+    (click)='leftScroll()'
+    class='arrow-left'>
+      left
+  </span>
+  <span
+    (click)='rightScroll()'
+    class='arrow-right'>
+      right
+  </span>
   <div *ngFor="let recipe of recipes" class="list-items">
     <app-recipe-item [recipe]="recipe" (click)="onSelected(recipe)">
     </app-recipe-item>

@@ -4,27 +4,26 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { Recipe } from "./recipe";
 
+import { ApiService } from '../api.service'
+import { AuthService } from '../auth.service'
+
 @Component({
   selector: 'app-recipes',
-  templateUrl: './recipes.component.html'
+  templateUrl: './recipes.component.html',
+  providers: [ApiService, AuthService]
 })
 
 export class RecipesComponent implements OnInit {
+  recipes: Recipe[];
   selectedRecipe: Recipe;
-  constructor() { }
-
-  element;
-  hover;
+  constructor(private apiClient: ApiService) { }
 
   ngOnInit() {
-    this.element = document.getElementById('scroll-me');
-  }
-
-  leftScroll (event) {
-    this.element.scrollLeft += 100;
-  }
-
-  rightScroll () {
-    this.element.scrollLeft -= 100;
+    this.apiClient.getRecipes()
+    .then(recipes => {
+      this.selectedRecipe = recipes.shift() as Recipe
+      console.log(this.selectedRecipe)
+      this.recipes = recipes as Recipe[]
+    })
   }
 }
