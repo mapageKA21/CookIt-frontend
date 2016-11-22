@@ -37,7 +37,7 @@ import { SignupComponent } from './signup/signup.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: MainComponent
+        component: RecipesComponent
       },
       {
         path: 'login',

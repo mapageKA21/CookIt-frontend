@@ -10,9 +10,16 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
 
+
+
   constructor(private authClient: AuthService) { }
 
   ngOnInit() {
+
+  }
+
+  isLogged() {
+    return true;
   }
 
 }
