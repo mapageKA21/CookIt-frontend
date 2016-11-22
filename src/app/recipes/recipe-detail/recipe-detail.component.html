@@ -1,8 +1,8 @@
-    <h3>{{selectedRecipe?.name}}</h3>
-    <div  class="bg-image"
-      [ngStyle]="{'background-image':'url(' + selectedRecipe?.image_url + ')'}" >
-    </div>
-    <!-- <p>{{selectedRecipe?.id}}</p>
-    <span class="time">{{selectedRecipe?.cost}}</span>
-    <span class="cost">{{selectedRecipe?.difficulty}}</span>
-    <span class="cost">{{selectedRecipe?.time}}</span> -->
+<div  class="bg-image"
+  [ngStyle]="{'background-image':'linear-gradient(to bottom, rgba(0,0,0,0), black), url(' + selectedRecipe?.image_url + ')'}" >
+  <div class="overlay"></div>
+</div>
+<!-- <p>{{selectedRecipe?.id}}</p>
+<span class="time">{{selectedRecipe?.cost}}</span>
+<span class="cost">{{selectedRecipe?.difficulty}}</span>
+<span class="cost">{{selectedRecipe?.time}}</span> -->
