@@ -17,7 +17,7 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   @Output() recipeSelected = new EventEmitter<Recipe>();
 
-  constructor(private apiClient: ApiService) { }
+  constructor(private apiClient: ApiService, private authClient: AuthService) { }
 
   element;
   width:number;
@@ -30,7 +30,7 @@ export class RecipeListComponent implements OnInit {
     this.apiClient.signin('arol','Bananas')
     .then(()=>this.apiClient.getRecipes())
     .then((recipes) => {
-      this.recipes = recipes;
+      this.recipes = JSON.parse(recipes);
       //  create additional dummy content
       this.recipes[2] = this.recipes[0];
       this.recipes[3] = this.recipes[1];
