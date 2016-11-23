@@ -2,14 +2,19 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { AuthService } from './auth.service'
+import { AuthService } from './auth.service';
+import { RecipesUpdate } from './recipes-update'
 
 @Injectable()
 export class ApiService {
   BASE_URL: string = 'http://localhost:3001';
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private authService: AuthService, private http: Http) { }
+  constructor(
+    private authService: AuthService,
+    private http: Http,
+    private recipesUpdateEvent: RecipesUpdate
+  ) { }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
@@ -50,17 +55,33 @@ export class ApiService {
   }
 
   getRecipes(query?: string) {
+    // When this function is called is emitted and event that
+    // indicates that we have a new recipe collection, so the
+    // recipe list (main or search) should be updated.
+    let path: string = '';
+    if (query && query !== '') {
+      path = `${this.BASE_URL}/search/${query}`;
+    } else {
+      path = `${this.BASE_URL}/recipes`;
+    }
     return this.http
-      .get(`${this.BASE_URL}/recipes`, { headers: this.headers })
-      .toPromise()
-      .then((r: Response) => r.json())
+    .get(path, { headers: this.headers })
+    .toPromise()
+    .then((r: Response) => r.json())
+    .then((recipes) => {
+      this.recipesUpdateEvent.next(recipes);
+      return recipes;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   getRecipe(id: number) {
-    return this.http.get(`${this.BASE_URL}/categies/${id}`)
+    return this.http.get(`${this.BASE_URL}/recipes/${id}`)
       .toPromise()
       .then((r: Response) => r.json())
-      .catch(this.handleError)
+      .catch(this.handleError);
   }
 
   postRecipe(recipe: Object) {
@@ -69,6 +90,13 @@ export class ApiService {
       .toPromise()
       .then((r: Response) => r.json())
       .catch(this.handleError)
+  }
+
+  getSuggestion(ingredient1: string, ingredient2: string, ingredient3: string) {
+    return this.http.get(`${this.BASE_URL}/suggestions?one=${ingredient1}&two=${ingredient2}&three=${ingredient3}`)
+      .toPromise()
+      .then((r: Response) => r.json().recipes)
+      .catch(this.handleError);
   }
 
 }

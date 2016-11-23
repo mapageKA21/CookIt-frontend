@@ -1,4 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component, OnInit, EventEmitter, Output, Input
+} from '@angular/core';
 
 import { Recipe } from '../recipe';
 import { RecipeItemComponent } from './recipe-item.component';
@@ -14,6 +16,7 @@ import { AuthService } from '../../auth.service'
 })
 
 export class RecipeListComponent implements OnInit {
+  @Input()
   recipes: Recipe[];
   @Output() recipeSelected = new EventEmitter<Recipe>();
 
@@ -22,48 +25,44 @@ export class RecipeListComponent implements OnInit {
   element;
   width:number;
   intervalId;
+  scrollTarget:number;
 
   ngOnInit() {
     this.element = document.querySelector('.scroll-me');
     this.width = this.element.offsetWidth;
-
-    this.apiClient.signin('arol','Bananas')
-    .then(()=>this.apiClient.getRecipes())
-    .then((recipes) => {
-      this.recipes = JSON.parse(recipes);
-      //  create additional dummy content
-      this.recipes[2] = this.recipes[0];
-      this.recipes[3] = this.recipes[1];
-      this.recipes[4] = this.recipes[0];
-      this.recipes[5] = this.recipes[1];
-      this.recipes[6] = this.recipes[0];
-      this.recipes[7] = this.recipes[1];
-      this.recipes[8] = this.recipes[0];
-      this.recipes[9] = this.recipes[1];
-
-      this.recipeSelected.emit(recipes[0]); //  load placeholder
-      // debugger;
-    })
-    .catch((err) => {
-      console.log(err);
-    })
   }
 
   leftScroll () {
-    this.element.scrollLeft -= 7;
-    if (this.element.scrollLeft > 0) {
-        this.intervalId = setTimeout(() => {
-        this.leftScroll();
-      }, 1/5);
-    }
+    this.scrollTarget = Math.min(
+      this.element.scrollLeft - this.width/2, 
+      0)
+    this.performScroll('left')
   }
 
   rightScroll () {
-    this.element.scrollLeft += 7;
-    if (this.element.scrollLeft < this.width) {
+    this.scrollTarget = Math.max(
+      this.element.scrollLeft + this.width/2, )
+    this.performScroll('right')
+  }
+
+  performScroll(direction){
+    const scrollSpeed = 7
+    const scrollPan = direction==='right'? scrollSpeed : -scrollSpeed;
+    const currentLeft = this.element.scrollLeft;
+    this.element.scrollLeft += scrollPan;
+    if(currentLeft === this.element.scrollLeft) return;
+    const condition = direction==='right' ?
+      this.element.scrollLeft < this.scrollTarget :
+      this.element.scrollLeft > this.scrollTarget;
+
+    if (condition) {
         this.intervalId = setTimeout(() => {
-        this.rightScroll();
+        this.performScroll(direction);
       }, 1/5);
+    }
+    else {
+      console.log("Stop " + direction);
+      return false;
     }
   }
 

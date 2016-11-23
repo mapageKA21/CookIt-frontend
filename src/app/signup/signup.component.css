@@ -1,7 +1,7 @@
 body, html{
      height: 100%;
  	background-repeat: no-repeat;
- 	background-color: #fff;
+ 	background-color: #001F3F;
  	font-family: 'Oxygen', sans-serif;
 }
 
@@ -16,7 +16,7 @@ h1.title {
 }
 
 h3 {
-  color: red;
+  color: blue;
 }
 
 hr{
@@ -52,8 +52,8 @@ input::-webkit-input-placeholder {
 }
 
 .main-center{
- 	margin-top: 30px;
  	margin: 0 auto;
+  margin-top: 80px;
  	max-width: 330px;
     padding: 40px 40px;
 
@@ -61,9 +61,11 @@ input::-webkit-input-placeholder {
 
 .login-button{
 	margin-top: 5px;
+  background-color: #001F3F;
 }
 
 .login-register{
 	font-size: 11px;
 	text-align: center;
+  color: #001F3F;
 }
