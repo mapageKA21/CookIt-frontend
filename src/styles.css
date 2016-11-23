@@ -275,6 +275,13 @@ app-footer p {
 	}
 }
 
+.suggestions-container {
+	position:absolute;
+	z-index: 1;
+	margin: 0 17%;
+	width: 66%;
+}
+
 form.suggestions {
 	margin-top: 125px;
 }
