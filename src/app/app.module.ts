@@ -53,6 +53,10 @@ import { SuggestionComponent } from './suggestion/suggestion.component';
       {
         path: 'suggestion',
         component: SuggestionComponent
+      },
+      {
+        path: 'recipes/:id',
+        component: RecipeCardComponent
       }
     ])
   ],
