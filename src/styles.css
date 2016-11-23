@@ -37,6 +37,7 @@ app-recipe-list {
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto;
+	padding:0 100px;
 }
 
 div.list-items {
@@ -53,9 +54,7 @@ app-recipe-item {
 
 section.recipe-list-holder {
 	margin-bottom: 2%;
-	margin-left:6%;
 	position: relative;
-	width: 70%;
 }
 
 app-recipe-item a {
@@ -138,18 +137,30 @@ span.arrow-right {
   position: absolute;
   z-index: 2;
   cursor: pointer;
+	height:100vh;
+	text-align: center;
+	width: 80px;
+	padding-top:60px;
+}
+span.arrow-left img,
+span.arrow-right img {
+	height:90px;
+	transition: background .5s ease-out;
 }
 span.arrow-right {
-	height:100%;
-	right:-50px;
+	right:0;
+	background: linear-gradient(to left, black, rgba(0,0,0,0));
 }
 span.arrow-left {
-    left: 0px;
+  left:0;
+	background: linear-gradient(to right, black, rgba(0,0,0,0));
 }
 
-span.arrow-left:hover,
+span.arrow-left:hover{
+	background: linear-gradient(to right, #333, rgba(0,0,0,0));
+}
 span.arrow-right:hover{
-    background-color: #333;
+  background: linear-gradient(to left, #333, rgba(0,0,0,0));
 }
 
 app-recipe-detail {
@@ -214,7 +225,7 @@ app-recipes h3 {
 
 app-recipes {
 	float: left;
-	height: calc(100vh - 110px);
+	height: 100vh;
 	position:relative;
 	width:100%;
 	display: flex;
