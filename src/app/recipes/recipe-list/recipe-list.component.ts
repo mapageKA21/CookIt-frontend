@@ -51,7 +51,6 @@ export class RecipeListComponent implements OnInit {
     const currentLeft = this.element.scrollLeft;
     this.element.scrollLeft += scrollPan;
     if(currentLeft === this.element.scrollLeft) return;
-    console.log(this.element.scrollLeft, this.scrollTarget);
     const condition = direction==='right' ?
       this.element.scrollLeft < this.scrollTarget :
       this.element.scrollLeft > this.scrollTarget;

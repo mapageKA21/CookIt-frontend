@@ -38,7 +38,7 @@ app-recipe-list {
   flex-wrap: nowrap;
   overflow-x: auto;
 	padding:0 100px;
-}
+} 
 
 div.list-items {
 	display:flex;
@@ -112,8 +112,9 @@ app-header {
 img.recipe-book {
 	display: inline-block;
 	float:left;
-	height:62px;
-	width:105px;
+	height:50px;
+	margin-top: 5px;
+	margin-right: 10px;
 }
 span#cookit {
 	left: -8px;
@@ -224,7 +225,7 @@ app-recipes h3 {
 
 app-recipes {
 	float: left;
-	height: 100vh;
+	height: calc(100vh - 64px);
 	position:relative;
 	width:100%;
 	display: flex;
