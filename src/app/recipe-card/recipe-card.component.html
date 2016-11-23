@@ -1,44 +1,22 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img src="{{image_url}}"
-        alt=""
-        width="200"
-        height="200"
-        class="img-responsive">
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h3>{{name}}</h3>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <p>Id: {{id}}</p>
-    <span class="time">Time:  {{cost}}</span>
-    <span class="difficult">Difficulty:  {{difficulty}}</span>
-    <span class="cost">Cost:  {{time}}</span>
-  </div>
-</div>
-<!-- //  Each section is going to be a component -->
-<section class="ingredients">
-  <!-- //  iterate through ingredients -->
-  <span class="name">Name:  {{ingredients.name}}</span>
-  <span class="quantity">Quantity:  {{ingredients.quantity}}</span>
-  <span class="units">Units:  {{ingredients.units}}</span>
-</section>
-<section class="kit">
-  <!-- //  iterate through the array -->
-</section>
-<section class="preparation">
-  <!-- //  iterate through the array -->
-</section>
-<section class="instructions">
-  <!-- //  iterate through the array -->
-</section>
-<section class="serving">
-  <!-- //  iterate through the array -->
-</section>
-<section class="servings">
-  <!-- //  iterate through the array -->
-</section>
+<!-- <div  class="bg-image"
+  [ngStyle]="{
+    'background-image':
+    'linear-gradient(to bottom, rgba(0,0,0,0), black),
+    url(' + {{recipe.image_url}} + ')'}" >
+  <div class="overlay"></div>
+</div> -->
+
+
+    <div class='split-image'
+    [ngStyle]="{
+      'background-image':
+      'linear-gradient(to bottom, rgba(0,0,0,0), black),
+      url(' + recipe.image_url + ')'}">
+        <h3>{{recipe.name}}</h3>
+    </div>
+    <div class='split-recipe'>
+        <!-- <ul>
+            <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+        </ul> -->
+        <iframe [src]="recipe.url"></iframe>
+    </div>

@@ -57,7 +57,7 @@ export class ApiService {
   }
 
   getRecipe(id: number) {
-    return this.http.get(`${this.BASE_URL}/categies/${id}`)
+    return this.http.get(`${this.BASE_URL}/recipes/${id}`)
       .toPromise()
       .then((r: Response) => r.json())
       .catch(this.handleError)
