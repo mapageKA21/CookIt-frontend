@@ -1,44 +1,19 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img src="{{image_url}}"
-        alt=""
-        width="200"
-        height="200"
-        class="img-responsive">
+<div class='container'>
+  <app-header></app-header>
+  <div class="main">
+    <div style="{height: 100px;}" class="main">
+      <img src="{{recipe.image_url}}">
+      <h1>Title</h1>
+      <ul>
+          <li>Time</li>
+          <li>Difficulty</li>
+          <li>Cost</li>
+          <li>People</li>
+      </ul>
+    </div>
+    <div class="detail">
+      Details...
+    </div>
   </div>
+  <app-footer></app-footer>
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    <h3>{{name}}</h3>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <p>Id: {{id}}</p>
-    <span class="time">Time:  {{cost}}</span>
-    <span class="difficult">Difficulty:  {{difficulty}}</span>
-    <span class="cost">Cost:  {{time}}</span>
-  </div>
-</div>
-<!-- //  Each section is going to be a component -->
-<section class="ingredients">
-  <!-- //  iterate through ingredients -->
-  <span class="name">Name:  {{ingredients.name}}</span>
-  <span class="quantity">Quantity:  {{ingredients.quantity}}</span>
-  <span class="units">Units:  {{ingredients.units}}</span>
-</section>
-<section class="kit">
-  <!-- //  iterate through the array -->
-</section>
-<section class="preparation">
-  <!-- //  iterate through the array -->
-</section>
-<section class="instructions">
-  <!-- //  iterate through the array -->
-</section>
-<section class="serving">
-  <!-- //  iterate through the array -->
-</section>
-<section class="servings">
-  <!-- //  iterate through the array -->
-</section>

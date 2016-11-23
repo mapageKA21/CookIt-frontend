@@ -46,6 +46,10 @@ import { SignupComponent } from './signup/signup.component';
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'recipes/:id',
+        component: RecipeCardComponent
       }
     ])
   ],
