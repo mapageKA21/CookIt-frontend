@@ -84,5 +84,11 @@ export class ApiService {
       .catch(this.handleError);
   }
 
+  getSuggestion(ingredient1: string, ingredient2: string, ingredient3: string) {
+    return this.http.get(`${this.BASE_URL}/suggestions?one=${ingredient1}&two=${ingredient2}&three=${ingredient3}`)
+      .toPromise()
+      .then((r: Response) => r.json().recipes)
+      .catch(this.handleError);
+  }
 
 }

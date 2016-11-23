@@ -8,7 +8,7 @@ a:link , a:visited, a:hover, a:active {
 }
 
 html, body {
-	background-color:#001f3f;
+	background-color:black;
 	height: 100%;
 	width: 100%;
 	margin:0;
@@ -77,10 +77,8 @@ app-recipe-item h5 {
     display: none;
 }
 
-.btn {
+.sb-search-submit {
 	padding:0;
-}
-.btn-default {
 	background-color: transparent;
 	border-color:none;
 	border:none;
@@ -88,8 +86,8 @@ app-recipe-item h5 {
   height: 39px;
   width: 46px;
 }
-.btn-default:hover,
-.btn-default:focus {
+.sb-search-submit:hover,
+.sb-search-submit:focus {
 	background-color: #001f3f;
 	border:2px solid #fff;
 }
@@ -218,7 +216,7 @@ app-recipe-detail {
 
 /*  END search element */
 
-app-recipes h3, app-recipe-card h3 {
+.app-recipes h3, app-recipe-card h3 {
 	position: relative;
 	z-index: 9;
 	font-size: 6rem;
@@ -227,7 +225,7 @@ app-recipes h3, app-recipe-card h3 {
 	margin-bottom: 25px;
 }
 
-app-recipes {
+.app-recipes {
 	float: left;
 	height: calc(100vh - 64px);
 	position:relative;
@@ -235,11 +233,6 @@ app-recipes {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-}
-
-.container {
-	margin:0;
-	padding:0;
 }
 
 app-footer  {
@@ -286,10 +279,20 @@ app-footer p {
 	}
 }
 
-@media (min-width:1200px) {
-	.container {
-		width:100%;
-	}
+.suggestions-container {
+	position:absolute;
+	z-index: 1;
+	margin: 0 17%;
+	width: 66%;
+}
+
+form.suggestions {
+	margin-top: 125px;
+}
+
+form.suggestions .submit-row {
+	margin-top: 30px;
+	text-align: center;
 }
 
 .recipe-name:hover,

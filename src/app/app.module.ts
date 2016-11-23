@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthEvent } from './auth-event';
+import { SuggestionComponent } from './suggestion/suggestion.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthEvent } from './auth-event';
     RecipeCardComponent,
     LoginComponent,
     MainComponent,
-    SignupComponent
+    SignupComponent,
+    SuggestionComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,10 @@ import { AuthEvent } from './auth-event';
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'suggestion',
+        component: SuggestionComponent
       },
       {
         path: 'recipes/:id',
