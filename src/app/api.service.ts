@@ -84,6 +84,14 @@ export class ApiService {
       .catch(this.handleError);
   }
 
+  postRecipe(recipe: Object) {
+    console.log(recipe);
+    return this.http.post(`${this.BASE_URL}/recipes`, recipe)
+      .toPromise()
+      .then((r: Response) => r.json())
+      .catch(this.handleError)
+  }
+
   getSuggestion(ingredient1: string, ingredient2: string, ingredient3: string) {
     return this.http.get(`${this.BASE_URL}/suggestions?one=${ingredient1}&two=${ingredient2}&three=${ingredient3}`)
       .toPromise()
