@@ -30,16 +30,8 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  isLogged() {
-    return true;
-  }
-
   search(terms: string) {
-    if (terms.length>2) {
       this.apiClient.getRecipes(terms);
-    } else {
-
-    }
   }
 
 }

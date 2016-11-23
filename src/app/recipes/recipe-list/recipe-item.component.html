@@ -1,5 +1,8 @@
 <a href="#" >
-  <div [ngStyle]="{'background-image':'url(' + recipe.image_url + ')'}"
+  <div [ngStyle]="{
+      'background-image':
+      'linear-gradient(to bottom, rgba(0,0,0,0), black),
+      url(' + recipe.image_url + ')'}"
     class="recipe-card">
       <h5>{{recipe.name}}</h5>
       <!-- <p class="list-group-item-text">{{recipe.description}}</p> -->

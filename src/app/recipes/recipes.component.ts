@@ -20,6 +20,7 @@ export class RecipesComponent implements OnInit {
   constructor(private apiClient: ApiService, private RecipesUpdateEvent: RecipesUpdate) {
     this.RecipesUpdateEvent.subscribe({
       next: recipeList => {
+        if (recipeList.recipes) recipeList = recipeList.recipes; // Maneeeeeeeeeeeel!
         this.selectedRecipe = recipeList.shift() as Recipe;
         this.recipes = recipeList as Recipe[];
       }
