@@ -47,8 +47,7 @@ export class RecipeCardComponent implements OnInit {
   //  need to get a recipe based on ID here
   //  something similar to movie.component.ts
   ngOnInit() {
-    this.apiClient.signin('arol','Bananas')
-    .then( () => this.apiClient.getRecipes () )
+    this.apiClient.getRecipes ()
     .then((recipes) => {
       this.recipes = recipes;
       this.name = this.recipes[0].name;

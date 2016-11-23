@@ -1,12 +1,16 @@
   <span
     (click)='leftScroll()'
     class='arrow-left'>
-      left
+    <img
+      src="../../assets/arrow-left.png"
+    />
   </span>
   <span
     (click)='rightScroll()'
     class='arrow-right'>
-      right
+    <img
+      src="../../assets/arrow-right.png"
+    />
   </span>
   <div *ngFor="let recipe of recipes" class="list-items">
     <app-recipe-item [recipe]="recipe" (click)="onSelected(recipe)">

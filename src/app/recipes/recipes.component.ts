@@ -21,6 +21,7 @@ export class RecipesComponent implements OnInit {
   ngOnInit() {
     this.apiClient.getRecipes()
     .then(recipes => {
+      recipes = recipes.recipes;
       this.selectedRecipe = recipes.shift() as Recipe
       console.log(this.selectedRecipe)
       this.recipes = recipes as Recipe[]
