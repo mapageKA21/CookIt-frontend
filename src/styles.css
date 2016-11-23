@@ -99,7 +99,19 @@ app-header {
 .navbar-brand {
 	color:#fff;
 	font-size:1em;
-	padding-top:22px;
+	padding-top:2px;
+}
+
+img.recipe-book {
+	display: inline-block;
+	float:left;
+	height:62px;
+	width:105px;
+}
+span#cookit {
+	left: -8px;
+	position: relative;
+  top: 14px;
 }
 
 .navbar {
@@ -212,8 +224,8 @@ app-recipes {
 
 app-footer  {
 	background: #111;
-  display: block;
 	color: #fff;
+  display: block;
   float: left;
 	font-size: 200%;
 	padding: 10px 15px 0 0;
