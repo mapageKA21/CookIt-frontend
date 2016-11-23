@@ -59,11 +59,11 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text"
+          <input #term type="text"
             class="sb-search-input form-control"
             placeholder="Search">
         </div>
-        <button type="submit" class="sb-search-submit btn btn-default">
+        <button type="submit" class="sb-search-submit btn btn-default" (click)="search(term.value)">
           <img
             src="../assets/svg/si-glyph-text-search.png"
             class='search-button'

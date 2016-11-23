@@ -4,8 +4,9 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { Recipe } from "./recipe";
 
-import { ApiService } from '../api.service'
-import { AuthService } from '../auth.service'
+import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
+import { RecipesUpdate } from '../recipes-update';
 
 @Component({
   selector: 'app-recipes',
@@ -16,15 +17,17 @@ import { AuthService } from '../auth.service'
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
   selectedRecipe: Recipe;
-  constructor(private apiClient: ApiService) { }
+  constructor(private apiClient: ApiService, private RecipesUpdateEvent: RecipesUpdate) {
+    this.RecipesUpdateEvent.subscribe({
+      next: recipeList => {
+        if (recipeList.recipes) recipeList = recipeList.recipes; // Maneeeeeeeeeeeel!
+        this.selectedRecipe = recipeList.shift() as Recipe;
+        this.recipes = recipeList as Recipe[];
+      }
+    });
+  }
 
   ngOnInit() {
-    this.apiClient.getRecipes()
-    .then(recipes => {
-      recipes = recipes.recipes;
-      this.selectedRecipe = recipes.shift() as Recipe
-      console.log(this.selectedRecipe)
-      this.recipes = recipes as Recipe[]
-    })
+    this.apiClient.getRecipes();
   }
 }
