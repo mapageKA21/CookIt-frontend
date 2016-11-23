@@ -1,8 +1,11 @@
+import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute, Params } from '@angular/router';
-// import { ApiClientService } from '../api-client.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import {DomSanitizer} from "@angular/platform-browser";
+
 
 import { Recipe } from '../recipes/recipe';
+import { RecipeEdamam } from '../recipes/recipe-edamam';
 
 import { ApiService } from '../api.service'
 import { AuthService } from '../auth.service'
@@ -15,53 +18,43 @@ import { AuthService } from '../auth.service'
 })
 
 export class RecipeCardComponent implements OnInit {
-  recipes: Recipe[];
-  name:string;
-  id:number;
-  cost:number;
-  difficulty:number;
-  time:number;
-  image_url:string;
-  ingredients = [{
-            "name": "Potates",
-            "quantity": 1,
-            "unit": "units"
-            },{
-            "name": "Eggs",
-            "quantity": 2,
-            "unit": "units"
-            }
-          ];
-  kit: ["oven", "pan"];
-  preparation: "Slice the potates in cubes";
-  instructions: [ "Bake the sliced potatoes in the oven",
-        "Fry a little bit the potatoes in the pan",
-        "Lower the pan heat level. Throw the squashed egg on the pan.",
-        "Wait until it's cooked at the bottom, then turn it over the pan.",
-        "When it gets golden at the bottom again it's ready!" ];
-  serving: "Serve the meal on the plate and enjoy it!";
-  servings: 2;
 
-  constructor( private apiClient: ApiService ) { }
+  recipe: any;
+  isEdamam: boolean = false;
 
-  //  need to get a recipe based on ID here
-  //  something similar to movie.component.ts
+  constructor(
+    private apiClient: ApiService,
+    private authClient: AuthService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private domSanitizer : DomSanitizer
+  ) {
+
+  }
+
   ngOnInit() {
-    this.apiClient.getRecipes ()
-    .then((recipes) => {
-      this.recipes = recipes;
-      this.name = this.recipes[0].name;
-      this.id = this.recipes[0].id;
-      this.cost = this.recipes[0].cost;
-      this.difficulty = this.recipes[0].difficulty;
-      this.time = this.recipes[0].time;
-      this.image_url = this.recipes[0].image_url;
-      console.log(this.cost);
-      // debugger;
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+    this.route.params.subscribe(params => {
+      let id = params['id'];
+      if (id.indexOf('edamam.com') >= 0) {
+        // Is an edamam recipe
+        this.isEdamam = true;
+        this.recipe = new RecipeEdamam();
+      } else {
+        this.recipe = new Recipe();
+      }
+      this.apiClient.getRecipe(id)
+        .then((data) => {
+          this.recipe.parse(data);
+          if (this.recipe.url) {
+            this.recipe.url = this.domSanitizer.bypassSecurityTrustResourceUrl(this.recipe.url);
+          }
+          console.log(this.recipe);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
   }
 
 }

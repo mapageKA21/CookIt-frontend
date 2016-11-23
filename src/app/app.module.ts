@@ -47,6 +47,10 @@ import { AuthEvent } from './auth-event';
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'recipes/:id',
+        component: RecipeCardComponent
       }
     ])
   ],

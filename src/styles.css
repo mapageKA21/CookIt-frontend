@@ -3,6 +3,10 @@
 	margin: 0;
 }
 
+a:link , a:visited, a:hover, a:active {
+	text-decoration: none;
+}
+
 html, body {
 	background-color:#001f3f;
 	height: 100%;
@@ -38,7 +42,7 @@ app-recipe-list {
   flex-wrap: nowrap;
   overflow-x: auto;
 	padding:0 100px;
-} 
+}
 
 div.list-items {
 	display:flex;
@@ -214,10 +218,10 @@ app-recipe-detail {
 
 /*  END search element */
 
-app-recipes h3 {
+app-recipes h3, app-recipe-card h3 {
 	position: relative;
 	z-index: 9;
-	font-size: 8rem;
+	font-size: 6rem;
 	color: white;
 	margin-left: 6%;
 	margin-bottom: 25px;
@@ -286,4 +290,80 @@ app-footer p {
 	.container {
 		width:100%;
 	}
+}
+
+.recipe-name:hover,
+.recipe-name:focus,
+.recipe-name:selected {
+	text-decoration: none;
+}
+
+h3.no-hover:hover {
+	/*background-color: purple;*/
+	text-decoration: none !important;
+}
+
+.five-sections {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 90%;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: center;
+}
+
+.ingredients, .kit, .preparation, .instructions, .serving, .banner-wrapper {
+	height: 25vh;
+	margin: 20px;
+  width: 40vw;
+  background-color: #111111;
+  border: #ffffff solid 2px;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.banner-wrapper {
+	width: 83vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+app-recipe-card {
+	display: flex;
+	height: calc(100vh - 64px);
+	flex-direction: row;
+	width:100%;
+}
+
+.split-image {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: flex-end;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.split-recipe {
+	flex: 1;
+}
+
+.split-recipe iframe{
+	width:100%;
+	height: 100%;
+	border: none;
 }
