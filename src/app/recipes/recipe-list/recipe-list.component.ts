@@ -33,31 +33,36 @@ export class RecipeListComponent implements OnInit {
   }
 
   leftScroll () {
-    this.element.scrollLeft -= 7;
-    console.log(this.element.scrollLeft, this.width);
-    if (this.element.scrollLeft > 0) {
-        this.intervalId = setTimeout(() => {
-        this.leftScroll();
-      }, 1/5);
-    }
-    else{
-      console.log("Stop Left");
-      return false;
-    }
-    // else clearInterval(this.intervalId);
+    this.scrollTarget = Math.min(
+      this.element.scrollLeft - this.width/2, 
+      0)
+    this.performScroll('left')
   }
 
   rightScroll () {
-    this.scrollTarget = this.element.scrollLeft
-    this.element.scrollLeft += 7;
-    console.log(this.element.scrollLeft, this.width);
-    if (this.element.scrollLeft < this.width) {
+    this.scrollTarget = Math.max(
+      this.element.scrollLeft + this.width/2, )
+    this.performScroll('right')
+  }
+
+  performScroll(direction){
+    const scrollSpeed = 7
+    const scrollPan = direction==='right'? scrollSpeed : -scrollSpeed;
+    const currentLeft = this.element.scrollLeft;
+    this.element.scrollLeft += scrollPan;
+    if(currentLeft === this.element.scrollLeft) return;
+    console.log(this.element.scrollLeft, this.scrollTarget);
+    const condition = direction==='right' ?
+      this.element.scrollLeft < this.scrollTarget :
+      this.element.scrollLeft > this.scrollTarget;
+
+    if (condition) {
         this.intervalId = setTimeout(() => {
-        this.rightScroll();
+        this.performScroll(direction);
       }, 1/5);
     }
     else {
-      console.log("Stop Right");
+      console.log("Stop " + direction);
       return false;
     }
   }
