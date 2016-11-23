@@ -137,7 +137,6 @@ span.arrow-right {
   position: absolute;
   z-index: 2;
   cursor: pointer;
-	height:100vh;
 	text-align: center;
 	width: 80px;
 	padding-top:60px;
