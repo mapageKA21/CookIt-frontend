@@ -1,0 +1,38 @@
+<main class='post-wrapper container'>
+  <form> 
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Name</span>
+      <input #name type="text" class="form-control" placeholder="Recipe name" aria-describedby="basic-addon1" >
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Image_url</span>
+      <input #img type="text" class="form-control" placeholder="Url of the image" aria-describedby="basic-addon1" >
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Ingredients</span>
+      <input #ingr type="text" class="form-control" placeholder="Ingredients" aria-describedby="basic-addon1" >
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Instructions</span>
+      <input #inst type="text" class="form-control" placeholder="Instructions" aria-describedby="basic-addon1" >
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Servings</span>
+      <input #serv type="text" class="form-control" placeholder="Number" aria-describedby="basic-addon1" >
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">Time</span>
+      <input #time type="text" class="form-control" placeholder="Aproximated time" >
+      <span class="input-group-addon">minutes</span>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="submit" (click)="addRecipe({name: name.value, image_url: img.value, ingredients: ingr.value, instructions: inst.value, servings: serv.value, time: time.value})" class="btn btn-default">Send recipe</button>
+    </div>
+  </form>
+</main>

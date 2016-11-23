@@ -12,6 +12,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { PostRecipeComponent } from './post-recipe/post-recipe.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main.component';
 import { SignupComponent } from './signup/signup.component';
@@ -20,6 +21,7 @@ import { AuthEvent } from './auth-event';
 @NgModule({
   declarations: [
     AppComponent,
+    PostRecipeComponent,
     HeaderComponent,
     RecipesComponent,
     RecipeListComponent,
@@ -47,6 +49,10 @@ import { AuthEvent } from './auth-event';
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'postRecipe',
+        component: PostRecipeComponent
       }
     ])
   ],

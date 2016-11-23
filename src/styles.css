@@ -142,11 +142,6 @@ app-recipes {
 	justify-content: flex-end;
 }
 
-.container {
-	margin:0;
-	padding:0;
-}
-
 app-footer  {
 	background: #111;
   display: block;
@@ -168,9 +163,4 @@ div.bg-image {
 
 app-footer p {
 	margin:0;
-}
-@media (min-width:1200px) {
-	.container {
-		width:100%;
-	}
 }
