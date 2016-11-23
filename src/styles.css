@@ -46,6 +46,7 @@ app-recipe-item {
 }
 
 section.recipe-list-holder {
+	margin-left:2%;
 	position: relative;
 }
 
@@ -65,6 +66,28 @@ app-recipe-item h5 {
     display: none;
 }
 
+.btn {
+	padding:0;
+}
+.btn-default {
+	background-color: transparent;
+	border-color:none;
+	border:none;
+	border-radius: 0;
+  height: 39px;
+  width: 46px;
+}
+.btn-default:hover,
+.btn-default:focus {
+	background-color: #001f3f;
+	border:2px solid #fff;
+}
+
+img.search-button {
+	height:36px;
+	width:36px;
+}
+
 app-header {
   float: left;
   width: 100%;
@@ -76,6 +99,7 @@ app-header {
 .navbar-brand {
 	color:#fff;
 	font-size:1em;
+	padding-top:22px;
 }
 
 .navbar {
@@ -118,6 +142,49 @@ app-recipe-detail {
 	display: inline-block;
 	height: 100%;
 }
+
+.navbar-nav>li>a {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  background: #111;
+  color: #fff;
+  font-size: 19px;
+}
+
+.navbar-nav>li>.dropdown-menu {
+	background-color:#001f3f;
+}
+.dropdown-menu>li>a {
+	color:#fff;
+	font-size:1.3em;
+	padding:8px 50px;
+}
+.navbar {
+	border:none;
+}
+.dropdown-menu {
+	border:none;
+}
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover,
+.nav>li>a:focus,
+.nav>li>a:hover {
+  background-color: #001f3f;
+  border-color: #337ab7;
+}
+.nav>li>a:focus,
+.nav>li>a:hover {
+	padding-bottom:24px;
+}
+
+/*  search element */
+
+
+
+
+/*  END search element */
 
 app-recipes h3 {
 	position: relative;
@@ -166,18 +233,24 @@ app-footer p {
 	margin:0;
 }
 
-.navbar-nav>li>a {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    line-height: 20px;
-    background: #111;
-    color: #fff;
-    font-size: 19px;
-}
-
 @media (min-width: 768px) {
 	.navbar-form {
 		float:right !important;
+	}
+	.navbar-form .form-group {
+		margin-bottom: 5px;
+		width:240px;
+	}
+	.navbar-form .form-control {
+    background: #111111;
+		border-radius: 0;
+    border-width: 2px;
+    font-weight: bold;
+		height:40px;
+		width: 100%;
+	}
+	.form-group input {
+		color:#fff;
 	}
 }
 
