@@ -1,6 +1,7 @@
-
+<div class="app-recipes">
   <app-recipe-detail [selectedRecipe]="selectedRecipe"></app-recipe-detail>
   <h3>{{selectedRecipe?.name}}</h3>
   <section class='recipe-list-holder'>
     <app-recipe-list [recipes]="recipes" class='scroll-me' (recipeSelected)="selectedRecipe=$event"> </app-recipe-list>
   </section>
+</div>
