@@ -1,31 +1,27 @@
-#My Steps
+#Cook it
 
-Delete app.component.spec.ts as for testing only
+A app to find recipes and create new ones. Recipes come from its own database or Edamam API.
 
+![screenshot_2016-12-12_10-23-25](https://cloud.githubusercontent.com/assets/13260573/21094971/bc4c785e-c059-11e6-9e86-f91659e4b838.png)
+![screenshot_2016-12-12_10-31-02](https://cloud.githubusercontent.com/assets/13260573/21094972/bc61f8dc-c059-11e6-9424-287f6e240f55.png)
+![screenshot_2016-12-12_10-32-43](https://cloud.githubusercontent.com/assets/13260573/21094973/bc72a9b6-c059-11e6-8cb9-ef52072cb1ae.png)
 
+##To install:
+After cloning/forking:
 
-# RecipeFrontend
+- Edit src/app/api.service.ts to point to the backend
 
-Project generated [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.18.
+Then:
 
-## Development server
-`ng serve` for dev server, on `http://localhost:4200/`.  Auto reload if you change source files.
+    npm install
+    npm start
 
-## Code scaffolding
-`ng generate component component-name` for new component. Or `ng generate directive/pipe/service/class`.
+By default it will look for
 
-## Build
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+##Tech Stack
+- Koa2
+- Angular2
+- MongoDB with mongoose
+- Passport.js
 
-## Running unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-`ng e2e` executes the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Backend repo: [https://github.com/scruben/recipes-backend](https://github.com/scruben/recipes-backend)
